@@ -1,0 +1,15 @@
+.classpath
+.project
+*.iml
+*.ipr
+*.iws
+.idea
+build
+target
+.gradle
+.settings
+src/main/resources/static/*
+docker/mysql/conf
+docker/mysql/data
+docker/mysql/.*
+

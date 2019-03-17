@@ -1,0 +1,45 @@
+buildscript {
+    ext {
+        springBootVersion = '1.4.3.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+    defaultTasks 'clean', 'build'
+}
+
+apply plugin: 'idea'
+apply plugin: 'groovy'
+apply plugin: "org.springframework.boot"
+
+jar  {
+    baseName = 'membersapp'
+    version = '0.0.2'
+}
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile("org.codehaus.groovy:groovy")
+    compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+    compile("org.springframework.boot:spring-boot-starter-security:${springBootVersion}")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}")
+    compile("org.springframework.boot:spring-boot-starter-data-rest:${springBootVersion}")
+    //compile 'org.springframework.data:spring-data-rest-hal-browser'
+    compile ('mysql:mysql-connector-java:5.1.6')
+    testCompile ('org.hsqldb:hsqldb')
+    testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
+}
+
+//sourceCompatibility = 1.8
+//targetCompatibility = 1.8
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.1'
+}
+
+
+

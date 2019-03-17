@@ -1,0 +1,20 @@
+version: '2'
+services:
+  mariadb:
+    image: bitnami/mariadb:latest
+    volumes:
+      - ./:/bitnami/mariadb
+    environment:  
+      MARIADB_ROOT_PASSWORD: password
+      MARIADB_USER: membersapp
+      MARIADB_PASSWORD: password
+      MARIADB_DATABASE: membersapp
+    ports:
+      - '3306:3306'
+  phpmyadmin:
+    image: bitnami/phpmyadmin:latest
+    depends_on:
+      - mariadb
+    ports:
+      - '81:80'   
+

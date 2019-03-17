@@ -1,0 +1,42 @@
+<div class="container">
+  <h2>Dodaj płatność</h2>
+  <form #addPaymentForm="ngForm" (ngSubmit)="savePayment(addPaymentForm.value)" autocomplete="off" materialize class="col s12">
+
+    <div class="row">
+      <div class="input-field col s6">
+        <input  (ngModel)="payment.amount" name="amount" type="text" class="validate" id="amount" required>
+        <label for="amount">Kwota</label>
+      </div>
+      <div class="input-field col s6">
+        <select (ngModel)="payment.currency" name="currency"  materialize="material_select" [materializeSelectOptions]="currencies" id="currency" required>
+          <option selected="selected" disabled>Wybierz...</option>
+          <option *ngFor="let cur of currencies" [ngValue]="cur.id">{{cur.currency}}</option>
+        </select>
+        <label for="currency">Waluta</label>
+      </div>
+    </div>
+      <div class="row">
+      <div class="input-field col s6">
+        <select (ngModel)="payment.type" name="type" materialize="material_select" [materializeSelectOptions]="paymentTypes" id="type" required>
+          <option selected="selected" disabled>Wybierz...</option>
+          <option *ngFor="let pt of paymentTypes" [ngValue]="pt.id">{{pt.type}}</option>
+        </select>
+        <label for="type">Typ płatności</label>
+      </div>
+      <div class="input-field col s6">
+        <input (ngModel)="payment.paymentDate" name="paymentDate" id="paymentDate"
+               materialize="pickadate"
+               [materializeParams]="[datePickerOptions]"
+               type="text" required />
+        <label for="paymentDate">Data wpłynięcia</label>
+      </div>
+      </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <button type="submit" [disabled]="addPaymentForm.invalid" class="waves-effect waves-light btn">Dodaj</button>
+        <button type="button" (click)="cancel()" class="waves-effect waves-light btn">Anuluj</button>
+      </div>
+    </div>
+  </form>
+</div>
+

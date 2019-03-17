@@ -1,0 +1,27 @@
+<div materialize class="container">
+  <h2>Członkowie</h2>
+<table class="bordered highlight responsive-table">
+  <thead>
+    <tr>
+      <th>Imię</th>
+      <th>Nazwisko</th>
+      <th>Miasto</th>
+      <th>Email</th>
+      <th>Telefon</th>
+      <th>PESEL</th>
+      <th><a [routerLink]="['/members/add']" class="btn-floating right btn-large red"><i class="material-icons">person_add</i></a></th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor= "let member of memberList">
+    <td>{{member.firstNames}}</td>
+    <td>{{member.sureName}}</td>
+    <td>{{member.town}}</td>
+    <td>{{member.email}}</td>
+    <td>{{member.phone}}</td>
+    <td>{{member.pesel}}</td>
+    <td><a [routerLink]="['/members/', member.id]" class="btn-floating right btn-large"><i class="material-icons">person</i></a></td>
+  </tr>
+  </tbody>
+</table>
+</div>

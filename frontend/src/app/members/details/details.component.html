@@ -1,0 +1,65 @@
+<div class="container">
+<h2></h2>
+  <div class="row">
+    <div class="col s12 m12">
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text">
+        <span class="card-title" style="font-weight: 500">{{member.sureName}} <small>{{member.firstNames}}</small></span>
+        <div class="row">
+          <div class="col s4">
+            <h5>Adres</h5>
+            <p>{{member.street}} {{member.streetNumber}}</p>
+            <p>{{member.postalCode}}, {{member.town}}, {{member.voivodeship.name}} </p>
+          </div>
+          <div class="col s4">
+            <h5>Kontakt</h5>
+            <p><b>Telefon:</b> <p>{{member.phone}}
+              <br>
+              <b>Email:</b> <p>{{member.email}}</p>
+          </div>
+          <div class="col s4">
+            <h5>Inne</h5>
+            <p><b>Pesel:</b> {{member.pesel}}
+              <br>
+              <b>Data dodania:</b> <p> {{member.submission | date:'shortDate'}}</p>
+              <br>
+              <b>Status:</b> <p>{{member.state.status}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="card-action">
+      <a [routerLink]="['/members/edit', member.id]">Edytuj</a>
+      <a href="" (click) = "deleteMember()">Usuń</a>
+    </div>
+
+    </div>
+  </div>
+    <div class="col s12 m12">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title" style="font-weight: 400">Płatności</span>
+          <p *ngIf="member.payments.length > 0">Lista płatności</p>
+          <table *ngIf="member.payments.length > 0">
+            <thead>
+            <tr>
+              <th data-field="id">Wpłata</th>
+              <th data-field="price">Tytuł</th>
+              <th data-field="price">Data wpłynięcia</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor= "let payment of member.payments">
+              <td>{{payment.amount}} {{payment.currency.currency}}</td>
+              <td>{{payment.type.type}}</td>
+              <td>{{payment.paymentDate | date:'shortDate'}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-action">
+          <a [routerLink]="['/members/pay', member.id]">Dodaj płatność</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

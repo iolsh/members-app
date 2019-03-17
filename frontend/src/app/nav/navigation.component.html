@@ -1,0 +1,32 @@
+<nav>
+  <div class="nav-wrapper">
+    <ul class="right hide-on-med-and-down">
+      <li routerLinkActive="active" >
+        <a [routerLink]="['/members']">
+          <i class="material-icons left">people</i>Członkowie</a>
+      </li>
+      <li routerLinkActive="active"><a [routerLink]="['/stats']">
+      <i class="material-icons left">multiline_chart</i>Statystyki</a></li>
+      <!--<li><a href="#!" data-activates="slide-out" class="button-collapse show-on-large" materialize="sideNav"
+             [materializeParams]="[{edge: 'left'}]"><i class="material-icons">menu</i>
+      </a></li>-->
+    </ul>
+
+    <ul id="slide-out" class="side-nav">
+      <li><div class="userView">
+        <div class="background">
+          <img src="../../assets/img/bg.gif" style="width: 300px; height: 176px">
+        </div>
+        <a href="#!"><img class="circle" src="../../assets/img/principle.png" style="width: 128px; height: auto"></a>
+        <a href="#!"><span class="name">Główny administrator</span></a>
+        <br>
+      </div>
+      </li>
+      <li><a href="#!">Profil</a></li>
+      <li><a href="#!">Dodaj użytkownika</a></li>
+      <li><a href="#!">Wyloguj</a></li>
+    </ul>
+
+  </div>
+</nav>
+

@@ -1,0 +1,65 @@
+<div class="container">
+  <h2>Dodaj członka</h2>
+  <form #newMemberForm="ngForm" (ngSubmit)="saveMember(newMemberForm.value)" autocomplete="off" novalidate materialize class="col s12">
+    <div class="row">
+      <div class="input-field col s6">
+        <input [(ngModel)]="member.firstNames" name="firstNames" type="text" class="validate" id="firstNames"
+        required minlength="3" #firstNames="ngModel">
+        <label for="firstNames">Imiona</label>
+      </div>
+      <div class="input-field col s6">
+        <input [(ngModel)]="member.sureName" name="sureName" type="text" class="validate" id="sureName"
+           required minlength="2">
+        <label for="sureName">Nazwisko</label>
+      </div>
+      <div class="input-field col s6">
+        <input [(ngModel)]="member.town" name="town" type="text" class="validate" id="town">
+        <label for="town">Miasto</label>
+      </div>
+      <div class="input-field col s6">
+        <select (ngModel)="member.voivodeship" name="voivodeship"  materialize="material_select" [materializeSelectOptions]="voivodeships" id="voivodeship" required>
+          <option selected="selected" disabled>Wybierz...</option>
+          <option *ngFor="let v of voivodeships" [ngValue]="v.id">{{v.name}}</option>
+        </select>
+        <label for="voivodeship">Województwo</label>
+      </div>
+      <div class="input-field col s6">
+        <input [(ngModel)]="member.postalCode" name="postalCode" type="text" class="validate" id="postalCode">
+        <label for="postalCode">Kod pocztowy</label>
+      </div>
+      <div class="input-field col s6">
+        <input [(ngModel)]="member.street" name="street" type="text" class="validate" id="street">
+        <label for="street">Ulica</label>
+      </div>
+      <div class="input-field col s6">
+        <input [(ngModel)]="member.streetNumber" required pattern="^\d+$" name="streetNumber" type="text" class="validate" id="streetNumber" #nr="ngModel">
+        <label for="streetNumber" [attr.data-error]="getError(nr)">Nr</label>
+      </div>
+      <div class="input-field col s6">
+        <input [(ngModel)]="member.phone" name="phone" type="text" class="validate" id="phone">
+        <label for="phone">Telefon</label>
+      </div>
+      <div class="input-field col s6">
+        <input [(ngModel)]="member.email" required validateEmail name="email"  type="email" class="validate" id="email" #eml="ngModel" >
+        <label for="email" [attr.data-error]="getError(eml)">Email</label>
+      </div>
+      <div class="input-field col s6">
+        <input [(ngModel)]="member.pesel" required name="pesel" type="text" class="validate" id="pesel" >
+        <label for="pesel">Pesel</label>
+      </div>
+      <div class="input-field col s6">
+        <select (ngModel)="member.state" name="state"  materialize="material_select" [materializeSelectOptions]="mstatuses" id="state" required>
+          <option selected="selected" disabled>Wybierz...</option>
+          <option *ngFor="let ms of mstatuses" [ngValue]="ms.id">{{ms.status}}</option>
+        </select>
+        <label for="voivodeship">Status członka</label>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <button type="submit" [disabled]="newMemberForm.invalid" class="waves-effect waves-light btn">Dodaj</button>
+          <button type="button" (click)="cancel()" class="waves-effect waves-light btn">Anuluj</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
