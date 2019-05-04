@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Router, ActivatedRoute} from "@angular/router";
-import {PaymentService} from "../shared/payment.service";
+import {Router, ActivatedRoute} from '@angular/router';
+import {PaymentService} from '../shared/payment.service';
 
-declare var $:JQueryStatic;
+declare var $: JQueryStatic;
 const PAYMENT_TYPES = '/api/dict/paymentType';
 const CURRENCIES = '/api/dict/currency';
 
@@ -47,33 +47,33 @@ export class AddPaymentComponent implements OnInit {
     this.router.navigate(['/members', this.memberId]);
   }
 
-  datePickerOptions : any = {
-    selectMonths: true,//Creates a dropdown to control month
-    selectYears: 3,//Creates a dropdown of 15 years to control year
-    //The title label to use for the month nav buttons
+  datePickerOptions: any = {
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 3, // Creates a dropdown of 15 years to control year
+    // The title label to use for the month nav buttons
     labelMonthNext: 'Następny miesiąc',
     labelMonthPrev: 'Poprzedni miesiąc',
-    //The title label to use for the dropdown selectors
+    // The title label to use for the dropdown selectors
     labelMonthSelect: 'Wybierz miesiąc',
     labelYearSelect: 'Wybierz rok',
-    //Months and weekdays
+    // Months and weekdays
     monthsFull: [ 'Styczeń', 'Luty', 'Marzec', 'Kwiecień', 'Maj', 'Czerwiec', 'Lipiec', 'Sierpień',
       'Wrzesień', 'Pażdziernik', 'Listopad', 'Grudzień' ],
     monthsShort: [ 'STY', 'LUT', 'MAR', 'KWI', 'MAJ', 'CZE', 'LIP', 'SIE', 'WRZ', 'PAŹ', 'LIS', 'GRU' ],
     weekdaysFull: [ 'Niedziela', 'Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota' ],
     weekdaysShort: [ 'Niedz.', 'Pon.', 'Wt.', 'Śr.', 'Czw.', 'Pt.', 'Sob.' ],
-    //Materialize modified
+    // Materialize modified
     weekdaysLetter: [ 'N', 'P', 'W', 'Ś', 'C', 'P', 'S' ],
-    //Today and clear
+    // Today and clear
     today: 'Dzisiaj',
     clear: 'Wyczyść',
     close: 'Zamknij',
-    //The format to show on the `input` element
+    // The format to show on the `input` element
     format: 'yyyy-mm-dd'
-  }
+  };
 
   init() {
-    let self = this;
+    const self = this;
     $.ajax(PAYMENT_TYPES)
       .done(function (data) {
         self.paymentTypes = data;

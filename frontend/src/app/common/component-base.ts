@@ -1,5 +1,5 @@
-import {NgModel} from "@angular/forms";
-import {Utils} from "./utils"
+import {NgModel} from '@angular/forms';
+import {Utils} from './utils';
 
 export class ComponentBase {
 

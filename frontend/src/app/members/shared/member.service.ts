@@ -10,41 +10,41 @@ export class MemberService extends ServiceBase {
     super();
   }
 
-  getAllMembers():Observable<any[]> {
+  getAllMembers(): Observable<any[]> {
     return this.http.get(ALL_MEMBERS).map((response: Response) => {
       return response.json();
     }).catch(super.handleError);
   }
 
-  getMemberById(id:number):Observable<any> {
+  getMemberById(id: number): Observable<any> {
     return this.http.get(MEMBER_BY_ID + id).map((response: Response) => {
       return response.json();
     }).catch(super.handleError);
   }
 
-  deleteMemberById(id:number):Observable<any> {
+  deleteMemberById(id: number): Observable<any> {
     return this.http.delete(MEMBER_BY_ID + id).map((response: Response) => {
       return response.json();
     }).catch(super.handleError);
   }
 
-  getMemberByPesel(pesel:string):Observable<any> {
+  getMemberByPesel(pesel: string): Observable<any> {
     return this.http.get(MEMBER_BY_PESEL + pesel).map((response: Response) => {
       return response.json();
     }).catch(super.handleError);
   }
 
   addMember(member): Observable<any> {
-    let headers = new Headers({ 'Content-Type': 'application/json'});
-    let options = new RequestOptions({headers: headers});
+    const headers = new Headers({ 'Content-Type': 'application/json'});
+    const options = new RequestOptions({headers: headers});
     return this.http.post(MEMBER_ADD, JSON.stringify(member), options).map((response: Response) => {
       return response.json();
     }).catch(super.handleError);
   }
 
   updateMember(member): Observable<any> {
-    let headers = new Headers({ 'Content-Type': 'application/json'});
-    let options = new RequestOptions({headers: headers});
+    const headers = new Headers({ 'Content-Type': 'application/json'});
+    const options = new RequestOptions({headers: headers});
     return this.http.put(MEMBER_UPDATE, JSON.stringify(member), options).map((response: Response) => {
       return response.json();
     }).catch(super.handleError);

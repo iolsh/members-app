@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {MemberService} from "../shared/member.service";
-import {Router} from "@angular/router";
-import {ComponentBase} from "../../common/component-base";
+import {MemberService} from '../shared/member.service';
+import {Router} from '@angular/router';
+import {ComponentBase} from '../../common/component-base';
 
 
-declare var $:JQueryStatic;
+declare var $: JQueryStatic;
 const VOIVODESHIPS = '/api/dict/voivodeship';
-const MSTATUSES = "/api/dict/memberStatus";
+const MSTATUSES = '/api/dict/memberStatus';
 
 export interface IVoivodeship {
   id: number;
@@ -27,8 +27,8 @@ export class AddMemberComponent extends ComponentBase implements OnInit {
   voivodeships: IVoivodeship[];
   mstatuses: IMemberStatus[];
 
-  constructor(private router: Router, private memberService:MemberService) {
-    super()
+  constructor(private router: Router, private memberService: MemberService) {
+    super();
   }
 
   ngOnInit() {
@@ -36,7 +36,7 @@ export class AddMemberComponent extends ComponentBase implements OnInit {
   }
 
   init() {
-    let self = this;
+    const self = this;
     $.ajax(VOIVODESHIPS)
       .done(function (data) {
         self.voivodeships = data;

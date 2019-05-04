@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {StatsService} from "./stats.service";
+import {StatsService} from './stats.service';
 export interface AmountByCurrency {
   currency: string;
   sum: number;
@@ -18,7 +18,7 @@ export class StatsComponent implements OnInit {
   ngOnInit() {
     this.stats.getPaymentsByCurrency().subscribe((byCurrency) => {
       this.paymentsByCurrency = byCurrency;
-      //console.log(`PaymentsByCurrency: ${JSON.stringify(this.paymentsByCurrency)}`)
+      // console.log(`PaymentsByCurrency: ${JSON.stringify(this.paymentsByCurrency)}`)
     });
     this.stats.getNewMambersCnt().subscribe((cnt) => {
       this.newCnt = cnt;

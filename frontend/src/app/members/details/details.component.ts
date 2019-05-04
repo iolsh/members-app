@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {MemberService} from "../shared/member.service";
+import {MemberService} from '../shared/member.service';
 
 @Component({
   selector: 'app-details',
@@ -8,7 +8,7 @@ import {MemberService} from "../shared/member.service";
 })
 export class DetailsComponent implements OnInit {
 
-  member : any;
+  member: any;
 
   constructor(private router: Router, private route: ActivatedRoute, private memberService: MemberService) { }
 

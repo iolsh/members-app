@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './members.component.html'
 })
 export class MembersComponent implements OnInit {
-  public memberList :any ;
+  public memberList: any ;
 
   constructor(private route: ActivatedRoute) { }
 

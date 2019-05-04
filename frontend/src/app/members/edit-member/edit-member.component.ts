@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import {MemberService} from "../shared/member.service";
-import {ComponentBase} from "../../common/component-base";
-import {IMemberStatus, IVoivodeship} from "../add-member/add-member.component";
-declare var $:JQueryStatic;
+import {ActivatedRoute, Router} from '@angular/router';
+import {MemberService} from '../shared/member.service';
+import {ComponentBase} from '../../common/component-base';
+import {IMemberStatus, IVoivodeship} from '../add-member/add-member.component';
+declare var $: JQueryStatic;
 const VOIVODESHIPS = '/api/dict/voivodeship';
-const MSTATUSES = "/api/dict/memberStatus";
+const MSTATUSES = '/api/dict/memberStatus';
 
 @Component({
   selector: 'app-edit-member',
@@ -16,8 +16,8 @@ export class EditMemberComponent extends ComponentBase implements OnInit {
   voivodeships: IVoivodeship[];
   mstatuses: IMemberStatus[];
 
-  constructor(private route: ActivatedRoute, private router: Router, private memberService:MemberService) {
-    super()
+  constructor(private route: ActivatedRoute, private router: Router, private memberService: MemberService) {
+    super();
   }
 
   ngOnInit() {
@@ -29,7 +29,7 @@ export class EditMemberComponent extends ComponentBase implements OnInit {
   }
 
   init() {
-    let self = this;
+    const self = this;
     $.ajax(VOIVODESHIPS)
       .done(function (data) {
         self.voivodeships = data;

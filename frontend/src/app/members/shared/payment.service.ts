@@ -13,8 +13,8 @@ export class PaymentService extends ServiceBase {
   addPayment(payment, memberId): Observable<any> {
     payment['memberId'] = memberId;
     console.log(`Payment to save: ${JSON.stringify(payment)}`);
-    let headers = new Headers({ 'Content-Type': 'application/json'});
-    let options = new RequestOptions({headers: headers});
+    const headers = new Headers({ 'Content-Type': 'application/json'});
+    const options = new RequestOptions({headers: headers});
     return this.http.post(PAYMENT_ADD, JSON.stringify(payment), options).map((response: Response) => {
       return response.json();
     }).catch(this.handleError);
